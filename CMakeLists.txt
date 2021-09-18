@@ -9,6 +9,7 @@ add_executable(mtac
     src/main.cc
     src/Tileset.cc
     src/Board.cc
+    src/BoardRenderer.cc
 )
 
 target_include_directories(mtac PRIVATE ext/SFML/include)
