@@ -7,6 +7,8 @@ add_subdirectory(ext/SFML)
 # main executable
 add_executable(mtac
     src/main.cc
+    src/Tileset.cc
+    src/Board.cc
 )
 
 target_include_directories(mtac PRIVATE ext/SFML/include)
