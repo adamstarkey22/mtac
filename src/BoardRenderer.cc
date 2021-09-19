@@ -4,8 +4,8 @@ BoardRenderer::BoardRenderer()
 {
     offsetX = 0;
     offsetY = 0;
-    tileRect.setOutlineThickness(-2.0f);
-    tilesetRect.setOutlineThickness(-2.0f);
+    tileRect.setOutlineThickness(-1.0f);
+    tilesetRect.setOutlineThickness(-5.0f);
     setScale(50.0f);
 }
 
@@ -45,11 +45,8 @@ void BoardRenderer::draw(sf::RenderWindow& window, Board& board)
                 tilesetRect.setOutlineColor(sf::Color(0x888888FF));
                 tileRect.setOutlineColor(sf::Color(0x888888FF));
             }
-
-            tilesetRect.setPosition(offsetX + tilesetX * tileScale * 3, offsetY + tilesetY * tileScale * 3);
-            window.draw(tilesetRect);
             
-            if (board.tilesets[tilesetIndex].state != TilesetState::Playable) continue;
+            if (board.tilesets[tilesetIndex].state == TilesetState::Playable) {
 
             for (int tileX = 0; tileX < 3; ++tileX) {
                 for (int tileY = 0; tileY < 3; ++tileY) {
@@ -67,6 +64,11 @@ void BoardRenderer::draw(sf::RenderWindow& window, Board& board)
                     window.draw(tileRect);
                 }
             }
+
+            }
+
+            tilesetRect.setPosition(offsetX + tilesetX * tileScale * 3, offsetY + tilesetY * tileScale * 3);
+            window.draw(tilesetRect);
         }
     }
 }
