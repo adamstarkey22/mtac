@@ -10,7 +10,9 @@ add_executable(mtac
     src/Tileset.cc
     src/Board.cc
     src/BoardRenderer.cc
+    src/Client.cc
+    src/Server.cc
 )
 
 target_include_directories(mtac PRIVATE ext/SFML/include)
-target_link_libraries(mtac sfml-graphics)
+target_link_libraries(mtac sfml-graphics sfml-network)
