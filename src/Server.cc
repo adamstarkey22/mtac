@@ -120,7 +120,9 @@ void Server::process(sf::TcpSocket& client, sf::Packet incoming)
     }
 
     //outgoing << MESSAGE_CONNECTION_RESPONSE;
-    send(client, outgoing);
+    for (auto itr = clients.begin(); itr != clients.end(); ++itr) {
+        send(**itr, outgoing);
+    }
 
 }
 
