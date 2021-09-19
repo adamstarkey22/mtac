@@ -15,8 +15,14 @@ void runServer(Server* server)
 
 int main(int argc, char** argv)
 {
+    const char* address = "localhost";
+
+    if (argc > 1) {
+        address = argv[1];
+    }
+
     bool doServer = false;
-    if (argc > 1 && strcmp(argv[1], "server") == 0) {
+    if (argc > 2 && strcmp(argv[2], "server") == 0) {
         doServer = true;
     }
 
@@ -30,7 +36,7 @@ int main(int argc, char** argv)
     
 
     Client client;
-    client.connect("localhost", 8080);
+    client.connect(address, 8080);
 
     sf::RenderWindow window(sf::VideoMode(960, 540), "mtac");
     Board board;
